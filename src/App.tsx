@@ -1,5 +1,7 @@
 import './App.css';
+
 import { useState } from 'react';
+
 import type { MouseEventHandler } from 'react'
 
 function increment(count: number) {
@@ -31,9 +33,9 @@ type CounterProps = {
 function Counter({ initial }: CounterProps) {
     const [count, setCount] = useState<number>(initial)
     function plus(): void {
-      if (count >= 10) {
+      /*if (count >= 10) {
         return
-      }
+      }*/
       setCount(increment)
     }
     function minus(): void {
@@ -42,11 +44,17 @@ function Counter({ initial }: CounterProps) {
       }
       setCount(decrement);
     }
-    return <div className="counter">
+    /*function reset(): void {
+      setCount(initial);
+    }
+    <Button label="Reset" fn={reset} />
+    */
+    return <><div className="counter">
       <Button label="-" fn={minus} />
       <Display val={count} />
       <Button label="+" fn={plus} />
-     </div>;
+     </div>
+     </>;
 }
 
 export default function App() {
